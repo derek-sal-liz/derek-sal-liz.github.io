@@ -9,14 +9,125 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/htmx.org@2.0.4"></script>
     <style>
+      :root {
+      --header-bg: #1a1a2e;
+      --header-text: #e8e0d0;
+      --nav-bg: #f5f0e8;
+      --nav-text: #2c2c2c;
+      --nav-accent: #c0392b;
+      --content-bg: #fdfaf5;
+      --content-text: #1a1a1a;
+      --divider: #d4cfc5;
+    }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--content-bg);
+      color: var(--content-text);
+    }
+ 
+    h1, h2, h3, .serif {
+      font-family: 'Playfair Display', serif;
+    }
+ 
+    /* ── Header ── */
+    #site-header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+    }
+ 
+    #site-header .tagline {
+      color: #a09880;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+ 
+    #site-header .rule {
+      border-color: #3a3a5a;
+    }
+ 
+    /* ── Nav sidebar ── */
+    #post-nav {
+      background-color: var(--nav-bg);
+      border-right: 1px solid var(--divider);
+    }
+ 
+    .nav-post-item {
+      border-bottom: 1px solid var(--divider);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+ 
+    .nav-post-item:hover {
+      background-color: #ede8de;
+    }
+ 
+    .nav-post-item.active {
+      background-color: #e8e0d0;
+      border-left: 3px solid var(--nav-accent);
+    }
+ 
+    .nav-post-date {
+      color: #888;
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+ 
+    .nav-post-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      color: var(--nav-text);
+      line-height: 1.4;
+    }
+ 
+    /* ── Blog content ── */
+    #post-content {
+      background-color: var(--content-bg);
+    }
+ 
+    .post-body h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2rem 0 0.75rem;
+      color: #111;
+    }
+ 
+    .post-body p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #333;
+      margin-bottom: 1.25rem;
+    }
+ 
+    .post-body img {
+      width: 100%;
+      border-radius: 4px;
+      margin: 1.5rem 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+ 
+    .post-body blockquote {
+      border-left: 3px solid var(--nav-accent);
+      padding-left: 1.25rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #555;
+    }
+ 
+    /* HTMX loading indicator */
+    #post-content.htmx-request {
+      opacity: 0.5;
+      transition: opacity 0.2s ease;
+    }
     </style>
   </head>
   <body>
     <header id="site-header" class="w-full px-10 py-10 flex flex-col items-center text-center">
       <h1 class="serif text-5xl md:text-6xl font-bold tracking-tight" py-4 style="color: var(--header-text);">
-        The Commonwealth
+        New England Oddities
       </h1>
-      <p class="py-4 tagline mb-3">For fans of New England</p>
+      <p class="py-4 tagline mb-3">The #1 stop for those who want more of New England</p>
       <hr class="rule w-24 mt-2 mb-4" />
     </header>
 
@@ -29,6 +140,7 @@
             <p>
               Welcome to my blog page! Here I write about all the cool stores, restaurants, 
               and otherwise local places I go to around Massachusetts and New England in general.
+              All my posts
             </p>
           </div>
         </article>
